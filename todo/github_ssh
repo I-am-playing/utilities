@@ -6,6 +6,13 @@
 
 #example   github_ssh user@mail.com
 
+# For some weird reason I was missing config file in ~/.shh 
+# Add this on your own if it does not work
+
+# config file in ~/.shh contents
+# 
+# Host github.com 
+# IdentityFile ~/.ssh/githubKey
 
 #User variables
 GITHUB_USER_EMAIL=$1
