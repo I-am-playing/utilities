@@ -1,0 +1,19 @@
+
+#!/bin/bash
+
+# This script installs GCC compiler and related tools
+
+# From: https://www.cyberciti.biz/faq/howto-installing-gnu-c-compiler-development-environment-on-ubuntu/
+
+# Install GNU/GCC compiler and related tools
+sudo apt update
+sudo apt upgrade
+sudo apt install build-essential
+
+# Install the dev man pages
+sudo apt-get install manpages-dev man-db manpages-posix-dev
+
+# Install X11 development compilers
+sudo apt install libx11-dev
+
+echo "Finished..."

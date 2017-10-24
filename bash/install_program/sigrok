@@ -1,0 +1,120 @@
+#!/bin/bash
+
+# From https://sigrok.org/wiki/Linux
+
+# This script installs sigrok logic analyser software
+
+##################################################################
+#   libserialport
+##################################################################
+# Requirements
+sudo apt-get install git-core gcc make autoconf automake libtool
+
+# Build
+cd ~/Download
+git clone git://sigrok.org/libserialport
+cd libserialport
+./autogen.sh
+./configure
+make
+sudo make install
+
+##################################################################
+#   libsigrok
+##################################################################
+# Requirements
+sudo apt-get install git-core gcc g++ make autoconf autoconf-archive \
+  automake libtool pkg-config libglib2.0-dev libglibmm-2.4-dev libzip-dev \
+  libusb-1.0-0-dev libftdi-dev check doxygen python-numpy\
+  python-dev python-gi-dev python-setuptools swig default-jdk
+
+# Build
+cd ~/Download
+git clone git://sigrok.org/libsigrok
+cd libsigrok
+./autogen.sh
+./configure
+make
+sudo make install
+
+##################################################################
+#   libsigrokdecode
+##################################################################
+# Requirements
+sudo apt-get install git-core gcc make autoconf automake libtool pkg-config libglib2.0-dev python3-dev
+
+# Build
+cd ~/Download
+git clone git://sigrok.org/libsigrokdecode
+cd libsigrokdecode
+./autogen.sh
+./configure
+make
+sudo make install
+
+##################################################################
+#   sigrok-cli
+##################################################################
+# Requirements
+sudo apt-get install git-core gcc make autoconf automake libtool pkg-config libglib2.0-dev
+
+# Build
+cd ~/Download
+git clone git://sigrok.org/sigrok-cli
+cd sigrok-cli
+./autogen.sh
+./configure
+make
+sudo make install
+
+##################################################################
+#   PulseView
+##################################################################
+# Requirements
+sudo apt-get install git-core g++ make cmake libtool pkg-config \
+  libglib2.0-dev libqt4-dev libboost-test-dev libboost-thread-dev \
+  libboost-filesystem-dev libboost-system-dev libqt5svg5-dev \
+  qtbase5-dev
+
+# Build
+cd ~/Download
+git clone git://sigrok.org/pulseview
+cd pulseview
+cmake .
+make
+sudo make install
+
+echo "Finished installing...."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

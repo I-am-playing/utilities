@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Initializes a serial communication with microcontroller's UART or similar devices.
+# First we need to init and then we select if we want to
+
+# Command type
+TYPE=$1
+
+# String to sent when command type is puts
+INPUT=$2
+
+# Port
+PORT=/dev/ttyACM0
+
+# Select command type
+if [ "$TYPE" == "init" ]; then
+    # Initialize port
+    sudo chmod 777 $PORT
+    echo "Initialized..."
+elif [ "$TYPE" == "puts" ]; then
+    # Tx
+    echo -n "$INPUT" > $PORT
+    printf "\n" > $PORT
+elif [ "$TYPE" == "gets" ]; then
+    # Rx
+    cat $PORT
+else
+    #User warning
+    #echo "Wrong argument!"
+
+    # Initialize port
+    sudo chmod 777 $PORT
+    echo "Opening cutecom..."
+    
+    (cutecom&)
+fi

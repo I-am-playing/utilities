@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Gives a directory and its childern default permissions
+
+#folders: chmod 775		drwxrwxr-x
+#files:   chmod 664		-rw-rw-r--
+
+#This should be run from the current path 
+#that we need to change permissions and ownership.
+PATH=./
+
+#Become the owner of all under the dir
+sudo chown -R $USER:$USER PATH
+
+#Set all directories as drwxrwxr-x
+find $PATH -type d -exec chmod 775 {} \;
+
+#Set all files as -rw-rw-r--
+find $PATH -type f -exec chmod 664 {} \;
+
+#Scripts and programs should be able to execute
+#TODO: Automate this for PATH
+
+

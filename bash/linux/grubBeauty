@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Changes the grub2 bootloader background image
+
+#example grubBeuty logo.png
+
+# Image path name
+IMAGE_PATH=$1
+
+test -z $IMAGE_PATH && echo "A valid image path is required." 1>&2 && exit 1
+
+# Add image and update grub
+sudo cp -v $IMAGE_PATH /boot/grub
+sudo update-grub

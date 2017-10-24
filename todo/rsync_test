@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd ~/Desktop
+mkdir -p dir1
+mkdir -p dir2
+touch dir1/file{1..100}
+
+rsync -a --delete dir1/ dir2

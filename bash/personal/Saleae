@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+# Runs Saleae logic analyser
+
+(sudo ~/Executable/Logic\ 1.2.14\ \(64-bit\)/Logic &>/dev/null ) &
+

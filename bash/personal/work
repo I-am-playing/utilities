@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# Script to initialize my working environment
+
+
+# +--------->x
+# |
+# |    Point( x,y )
+# |
+# |
+# |
+# V
+# y
+
+SCREEN1_X=1920
+SCREEN1_Y=1080
+
+SCREEN2_X=1280
+SCREEN2_Y=1024
+
+WINDOW_FRAME_X=6
+WINDOW_FRAME_Y=25
+
+echo "Workstation in initialized for embedded software design..."
+
+#Kill before run
+killall --quiet cutecom
+killall --quiet subl
+
+#Current terminal
+xdotool getactivewindow windowsize $((SCREEN2_X/2-WINDOW_FRAME_X)) $((SCREEN2_Y-WINDOW_FRAME_Y))
+xdotool getactivewindow windowmove $((SCREEN1_X+SCREEN2_X/2)) 0
+
+#Applications to run
+#(cutecom&)
+uart #We need sudo priviledges
+(thunar "/home/tedi/Desktop/Beehive Mk3/" &>/dev/null) &
+
+#Wait for the programms to open
+sleep .5
+
+#Cutecom
+CUTECOM_ID=$(xdotool search --onlyvisible --name cutecom)
+xdotool windowsize ${CUTECOM_ID} $((SCREEN2_X/2-WINDOW_FRAME_X)) $((SCREEN2_Y-WINDOW_FRAME_Y))
+xdotool windowmove ${CUTECOM_ID} $((SCREEN1_X)) 0
+
+#Thunar
+#THUNAR_ID=$(xdotool search --onlyvisible --name thunar)
+#xdotool windowsize ${THUNAR_ID} $((SCREEN2_X-WINDOW_FRAME_X)) $((SCREEN2_Y-WINDOW_FRAME_Y))
+#xdotool windowmove ${THUNAR_ID} $((SCREEN1_X)) 0
+
+
+#echo "Size: $((SCREEN2_X/2-WINDOW_FRAME_X)) $((SCREEN2_Y-WINDOW_FRAME_Y))"
+
+subl --add "~/Desktop/Beehive Mk3/"
+sleep 2
+SUBL_ID=$(xdotool search --onlyvisible --name subl)
+xdotool windowsize ${SUBL_ID} $((SCREEN1_X-WINDOW_FRAME_X)) $((SCREEN1_Y-WINDOW_FRAME_Y))
+xdotool windowmove ${SUBL_ID} 0 0
+
+# x,y = <-->,updown
+#xdotool windowmove ${CUTECOM_ID} 1024 0
+
+echo "If you need to copy and paste here is it:"
+echo "/dev/ttyACM0"
+
+
+#Xaxis=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+#Yaxis=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
+#echo "Xaxis = ${Xaxis}"
+#echo "Yaxis = ${Yaxis}"
+
+#SCREEN_RESOLUTION=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/')
+#echo "Screen = ${SCREEN_RESOLUTION}"
+
+#xfce4-terminal --title="Beehive-Mk3" --working-directory="/home/tedi/Desktop/Beehive Mk3/"

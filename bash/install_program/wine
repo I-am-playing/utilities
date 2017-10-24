@@ -1,0 +1,26 @@
+#!/bin/bash
+
+cd ~/Downloads
+
+# Wine Release.key is the file that will allow us to add the Wine repository on our distribution securely
+wget https://dl.winehq.org/wine-builds/Release.key
+sudo apt-key add Release.key
+
+# Add the Wine repository for xenial ubuntu based distros
+sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main'
+sudo apt-get update
+
+#Install Wine stable
+sudo apt-get install --install-recommends winehq-stable -y
+
+# Check version
+wine --version
+
+# Install Wine Development
+sudo apt-get install --install-recommends winehq-devel -y
+
+# Check again version
+wine --version
+
+# Configure wine
+winecfg

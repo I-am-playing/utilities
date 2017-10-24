@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Build abd install cppcheck 1.82 dev from github
+echo "Started..."
+
+cd ~/Downloads
+git clone https://github.com/danmar/cppcheck.git
+cd cppcheck
+
+#sudo apt-get install ttf-bitstream-vera
+sudo make install SRCDIR=build CFGDIR=$HOME/.cppcheck/cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function"
+
+# gui
+sudo apt-get install cppcheck-gui
+
+echo "Finished..."

@@ -1,0 +1,14 @@
+#!/bin/bash/
+
+echo "Start installing"
+
+#Update program list from internet
+sudo apt-get update
+
+#Install Maxima
+sudo apt-get install maxima
+sudo apt-get install xmaxima
+sudo apt-get install wxmaxima
+sudo apt-get install gnuplot
+
+echo "Finished installing..."

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#This script enables/disables the secondary screen
+#in a PC that has two screens.
+
+#User defined variables
+#run [xrandr --current] to see your screen names
+PRIMARY_LCD="DVI-I-1"
+SECONDARY_LCD="VGA-0"
+
+#User inpt arguments
+CMD=$1
+
+#Enable/Disable screen
+if [ "$CMD" == "on" ]; then
+    #Turn on
+    xrandr --output $SECONDARY_LCD --auto --right-of $PRIMARY_LCD
+    echo "Turned on"
+elif [ "$CMD" == "off" ]; then
+    #Turn off
+    xrandr --output $SECONDARY_LCD --off
+    echo "Turned off"
+else
+    #User warning
+    echo Argument is required... [on, off]
+fi
+
