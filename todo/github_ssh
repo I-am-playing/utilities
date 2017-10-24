@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Enables ssh authentication with Github
+
+# Arguments email
+
+#example   github_ssh user@mail.com
+
+
+#User variables
+GITHUB_USER_EMAIL=$1
+KEY_NAME="github_rsa"
+
+# Check arguments to be a valid
+test -z $GITHUB_USER_EMAIL && echo "A valid email is required." 1>&2 && exit 1
+
+#WARNING!!! CHANGE IF YOU KNOW WHAT YOU ARE DOING
+SYSTEM_SSH_FOLDER="$HOME/.ssh/"
+
+#Make default directory to store keys in HOME
+mkdir -p $SYSTEM_SSH_FOLDER
+
+#Create key
+ssh-keygen -t rsa -b 4096 -C $GITHUB_USER_EMAIL -f "$SYSTEM_SSH_FOLDER""$KEY_NAME"
+
+#Start ssh agent in the background
+eval "$(ssh-agent -s)"
+
+#Add key to ssh server
+#chmod 700 "$SYSTEM_SSH_FOLDER"
+#chmod 600 "$KEY_NAME"
+#chmod 644 "$KEY_NAME".pub
+cd "$SYSTEM_SSH_FOLDER"
+ssh-add "$KEY_NAME"
+
+#Add the key to github account.
+echo Got to Github and add the files contents of the file
+echo "$SYSTEM_SSH_FOLDER""$KEY_NAME".pub
+echo to github.com -> Account settings -> SSH
+echo You have to do this manually
+
+ssh-add -l
+
+echo Finished...
