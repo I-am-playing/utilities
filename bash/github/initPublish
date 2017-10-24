@@ -1,8 +1,8 @@
 #!/bin/sh
 
 
-# This script creates a new git repository to the directory it was executed
-# and also publishes it to Github as a remote.
+# Create a new git repo in the current dir and publish to Github
+# as a remote.
 
 # Arguments: Github user name and 
 

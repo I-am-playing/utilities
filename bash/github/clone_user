@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Clones all 100 first repositories for a given user in Github.
+# Clones the 100 first repositories for a given user in Github.
 
 # Warning! If more than 100 repositories exist change the PAGE.
 

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#This script enables/disables the secondary screen
-#in a PC that has two screens.
+#Turns on/off the second lcd-screen of your pc 
 
 #User defined variables
 #run [xrandr --current] to see your screen names

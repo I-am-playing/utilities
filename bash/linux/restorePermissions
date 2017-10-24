@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Gives a directory and its childern default permissions
+# Gives default permissions to the current directory tree
 
 #folders: chmod 775		drwxrwxr-x
 #files:   chmod 664		-rw-rw-r--

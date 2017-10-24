@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script creates a new Github repository.
+# Create a new Github remote repo.
 
 # Arguments: Github user name and 
 
