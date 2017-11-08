@@ -3,5 +3,6 @@
 
 # Runs Saleae logic analyser
 
+sudo -v
 (sudo ~/Executable/Logic\ 1.2.14\ \(64-bit\)/Logic &>/dev/null ) &
 

@@ -11,6 +11,7 @@ BASH_GITHUB_SCRIPTS =		bash/github/clone_user\
 							bash/github/newRepo
 							
 BASH_INS_PROG_SCRIPTS =		bash/install_program/cppcheck\
+							bash/install_program/ctags\
 							bash/install_program/gcc\
 							bash/install_program/maxima\
 							bash/install_program/sigrok\

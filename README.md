@@ -10,6 +10,7 @@
 | initPublish              | github              | Create a new git repo in the current dir and publish to Github   |
 | newRepo                  | github              | Create a new Github remote repo                                  |
 | cppcheck                 | install_program     | Install cppcheck                                                 |
+| ctags                    | install_program     | Install ctags                                                    |
 | gcc                      | install_program     | Install gcc                                                      |
 | maxima                   | install_program     | Install maxima                                                   |
 | sigrok                   | install_program     | Install sigrok                                                   |
